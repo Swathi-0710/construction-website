@@ -1,13 +1,13 @@
 # XTRA Construction Homepage
 
-A responsive frontend recreation inspired by the XTRA Theme Construction 2 demo homepage. Built with Next.js, React, TypeScript, Tailwind CSS, custom CSS, and Lucide icons.
+A responsive frontend recreation inspired by the [XTRA Theme Construction 2 demo homepage](https://xtra-theme.com/). Built with Next.js, React, TypeScript, Tailwind CSS, custom CSS, and Lucide icons.
 
 ## Requirements
 
 - Node.js 18.17 or later
 - npm
 
-## Getting started
+## Getting Started
 
 1. Clone the repository and open its directory:
 
@@ -16,7 +16,7 @@ A responsive frontend recreation inspired by the XTRA Theme Construction 2 demo 
    cd construction-homepage
    ```
 
-2. Install the locked dependencies:
+2. Install the dependencies:
 
    ```bash
    npm ci
@@ -28,53 +28,77 @@ A responsive frontend recreation inspired by the XTRA Theme Construction 2 demo 
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000).
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-No environment file is required for local development. See [Environment configuration](#environment-configuration) if you want to keep a local template.
-
-## Available commands
+## Available Commands
 
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Start the Next.js development server |
 | `npm run build` | Create an optimized production build |
 | `npm run start` | Serve the production build (run `npm run build` first) |
-| `npm run lint` | Run Next.js ESLint (may prompt to configure ESLint on first use) |
+| `npm run lint` | Run the project's lint checks, if configured |
 
-## Environment configuration
+## Environment Configuration
 
-The current frontend does not read environment variables, so no values need to be configured and deployment can proceed without environment variables.
+The current frontend does not require environment variables for local development or deployment.
 
-An optional [`.env.example`](./.env.example) is included as a reminder that there are currently no required variables. To make a local environment file, copy it to `.env.local` (for example, in PowerShell: `Copy-Item .env.example .env.local`). `.env.local` is ignored by Git.
+An optional `.env.example` file is included as a reminder that there are currently no required variables. To create a local environment file, copy it to `.env.local`.
+
+For PowerShell:
+
+```powershell
+Copy-Item .env.example .env.local
+```
 
 If an API or email service is added later:
 
 - Add only the variables the implementation actually reads to `.env.example`.
-- Keep private credentials in `.env.local` or the hosting provider's secret settings; never commit them.
+- Keep private credentials in `.env.local` or your hosting provider's secret settings. Never commit them.
 - Prefix a variable with `NEXT_PUBLIC_` only when it must be available in browser code. Values with that prefix are public.
 
 ## Features
 
 - Responsive header with mobile navigation
-- Hero slider with previous/next controls
+- Hero slider with previous and next controls
 - About, services, process, projects, quote form, testimonials, client logos, and footer sections
 - Interactive testimonial carousel and scroll-to-top control
 - Responsive desktop, tablet, and mobile layouts
 - Semantic markup and reduced-motion support
 
-The quote form currently validates in the browser and displays a demo confirmation; it does not send email or persist submitted data.
+The quote form currently validates in the browser and displays a demo confirmation. It does not send email or persist submitted data.
 
-## Project structure
+## Project Structure
+
+```text
+src/
+├── app/
+│   ├── page.tsx
+│   └── globals.css
+└── components/
+
+public/
+└── images/
+```
 
 - `src/app/` — Next.js App Router page and global styles
-- `src/components/` — reusable page sections and controls
-- `public/images/` — local image assets
+- `src/components/` — Reusable page sections and controls
+- `public/images/` — Local image assets
 
 Tailwind is configured in `tailwind.config.ts` and `postcss.config.js`. Global Tailwind layers are loaded from `src/app/globals.css`.
 
 ## Deployment
 
-Deploy as a Next.js application (for example, through Vercel) using the standard production build and start commands. No environment variables are currently needed.
+Deploy as a Next.js application using a hosting provider such as [Vercel](https://vercel.com/).
+
+Use the standard production build and start commands:
+
+```bash
+npm run build
+npm run start
+```
+
+No environment variables are currently required.
 
 ## Notes
 
