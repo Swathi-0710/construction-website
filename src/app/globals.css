@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: "Poppins", Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #fff;
+  color: #243344;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+
+  button {
+    font: inherit;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline outline-[3px] outline-[#f4c03b] outline-offset-[3px];
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+html {
+  width: 100%;
+  scroll-behavior: smooth;
+}
+  }
+}
+@keyframes spin360 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes stripeIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes manIn {
+  from { transform: translateY(60px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes check-shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-5px);
+  }
+
+  40% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes service-icon-hover {
+  49% {
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  51% {
+    opacity: 1;
+  }
+}
+
+.service-card:hover .service-card-icon,
+.service-card:focus-within .service-card-icon {
+  animation: service-icon-hover 0.3s forwards;
+}
+
+/* Shake the yellow rectangle and check icon */
+.group:hover .check-box {
+  animation: check-shake 0.5s ease-in-out;
+}
+
+/* Keep labels normal weight */
+.group {
+  font-weight: 400;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .check-box {
+    animation: none;
+  }
+
+  .service-card:hover .service-card-icon,
+  .service-card:focus-within .service-card-icon {
+    animation: none;
+  }
+}
